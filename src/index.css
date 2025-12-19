@@ -1,0 +1,278 @@
+:root {
+  --primary-color: #c74634; /* Terracotta / Burnt Orange */
+  --secondary-color: #1a1a1a; /* Deep charcoal / near-black */
+  --background-color: #ffffff; /* White */
+  --light-grey: #f5f5f5; /* Very light grey */
+  --accent-grey: #e0e0e0; /* Soft neutral grey */
+  --text-color: #333333; /* Dark grey for text */
+  --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --border-radius: 8px; /* Slightly more rounded for modern feel */
+  --subtle-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+  --letter-spacing-heading: 0.5px; /* Slightly increased for headings */
+  --line-height: 1.6; /* Comfortable line height */
+  --transition: all 0.3s ease; /* Global transition for smoothness */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  line-height: var(--line-height);
+  overflow-x: hidden;
+  scroll-behavior: smooth; /* Modern smooth scrolling */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 2rem); /* Fluid padding */
+}
+
+.section {
+  padding: clamp(4rem, 8vw, 6rem) 0; /* Fluid vertical padding */
+}
+
+.section-light {
+  background-color: var(--light-grey);
+}
+
+.section-divider {
+  border-top: 1px solid var(--accent-grey);
+  margin: clamp(2rem, 4vw, 4rem) 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: var(--subtle-shadow);
+}
+
+.btn:hover {
+  background-color: #a33d2f; /* Darken slightly */
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+.btn:disabled {
+  background-color: var(--accent-grey);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.grid {
+  display: grid;
+  gap: clamp(1rem, 3vw, 2rem); /* Fluid gap */
+}
+
+.grid-4 {
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(clamp(250px, 20vw, 300px), 1fr)
+  ); /* More responsive columns */
+}
+
+.timeline {
+  position: relative;
+  padding-left: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: clamp(0.75rem, 2vw, 1.25rem);
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--accent-grey);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * clamp(1.5rem, 4vw, 2.5rem) - 0.75rem);
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.timeline-item:hover::before {
+  transform: scale(1.2); /* Subtle hover effect */
+}
+
+.form-group {
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: clamp(0.75rem, 2vw, 1rem) clamp(1rem, 2vw, 1.25rem);
+  border: 1px solid var(--accent-grey);
+  border-radius: var(--border-radius);
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  background-color: var(--background-color);
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(199, 70, 52, 0.1); /* Focus ring for accessibility */
+}
+
+.error {
+  color: #d32f2f;
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+  margin-top: 4px;
+}
+
+.hero {
+  background-color: var(--secondary-color);
+  color: white;
+  text-align: center;
+  padding: clamp(5rem, 10vw, 8rem) 0; /* Fluid padding */
+}
+
+.logo {
+  width: clamp(100px, 15vw, 160px);
+  height: auto;
+  margin-bottom: clamp(1rem, 3vw, 2rem);
+  filter: brightness(0) invert(1); /* White logo on dark background */
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: var(--letter-spacing-heading);
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  margin-bottom: clamp(2rem, 4vw, 2.5rem);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card {
+  padding: clamp(1.5rem, 4vw, 2rem);
+  border: 1px solid var(--accent-grey);
+  border-radius: var(--border-radius);
+  background-color: white;
+  box-shadow: var(--subtle-shadow);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px); /* Lift on hover */
+}
+
+.footer {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: clamp(3rem, 6vw, 4rem) 0;
+  text-align: center;
+}
+
+.footer-logo {
+  width: clamp(60px, 10vw, 100px);
+  height: auto;
+  margin-bottom: 20px;
+  filter: brightness(0) invert(1);
+}
+
+.footer p {
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+  opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .hero h1 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+  }
+  .hero p {
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  }
+  .section {
+    padding: clamp(3rem, 6vw, 5rem) 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+  }
+  .hero p {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+  }
+  .section {
+    padding: clamp(2rem, 4vw, 4rem) 0;
+  }
+  .logo {
+    width: clamp(80px, 12vw, 120px);
+  }
+  .footer-logo {
+    width: clamp(50px, 8vw, 80px);
+  }
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+  .timeline {
+    padding-left: clamp(1rem, 3vw, 1.5rem);
+  }
+  .timeline-item::before {
+    left: calc(-1 * clamp(1rem, 3vw, 1.5rem) - 0.5rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+  .hero {
+    padding: clamp(3rem, 8vw, 5rem) 0;
+  }
+  .btn {
+    width: 100%; /* Full width on small screens */
+    text-align: center;
+  }
+  .card {
+    padding: 1rem;
+  }
+}
